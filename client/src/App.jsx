@@ -1,10 +1,11 @@
 import './App.css'
+import NavSidebar from './components/NavSidebar'
 
 function App() {
 
   return (
     <>
-      <h1>Note Taking App</h1>
+      <NavSidebar />
     </>
   )
 }

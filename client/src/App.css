@@ -1,6 +1,64 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding: 2rem;
   text-align: center;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+li {
+  list-style: none;
+}
+
+.sidebar-container{
+  width: 240px;
+  text-align: left;
+}
+
+.notes-nav{
+  padding: 1rem 0 0;
+  border-bottom: 1px solid;
+
+  & div{
+    margin-bottom: .8rem;
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    cursor: pointer;
+
+    & img{
+      margin-right: .5rem;
+    }
+  }
+}
+
+.notes-nav-active{
+  background-color: #f3f5f8;
+}
+
+.tags-container{
+  padding: .5rem 0;
+}
+
+.tags-lists{
+  
+  & li{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin: .5rem 0;
+    padding: 10px 12px;
+    cursor: pointer;
+
+    & img{
+      margin-right: .5rem;
+      width: 1.5rem;
+    }
+  }
 }
