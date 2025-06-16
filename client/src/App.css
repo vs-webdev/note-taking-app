@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   /* margin: 0 auto; */
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -16,9 +16,71 @@ li {
   list-style: none;
 }
 
+.note-app-container{
+  display: flex;
+  /* width: 1440px; */
+}
+
+
+section{
+  width: 100%;
+}
+
+.header-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 4rem;
+  width: 100%;
+}
+
+.header-right{
+  display: flex;
+  align-items: center;
+}
+
+.page-title{
+  font-size: 1.5rem;
+}
+
+.search-bar-container{
+  display: flex;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 8px;
+  margin-right: 1.5rem;
+  padding: 0 1rem;
+
+  & img{
+    width: 22px;
+  }
+
+  & input{
+    width: 250px;
+    height: 44px;
+    margin-left: 1rem;
+    border: none;
+    font-size: .8rem;
+  }
+}
+
+.setting-btn{
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+
+  & img{
+    width: 25px;
+  }
+}
+
 .sidebar-container{
-  width: 240px;
+  width: 100%;
+  max-width: 272px;
   text-align: left;
+  border-right: 1px solid;
 }
 
 .notes-nav{
@@ -50,7 +112,6 @@ li {
   
   & li{
     display: flex;
-    align-items: center;
     font-size: 1rem;
     margin: .5rem 0;
     padding: 10px 12px;
@@ -61,4 +122,34 @@ li {
       width: 1.5rem;
     }
   }
+}
+
+.notes-wrapper{
+  max-width: 290px;
+  padding: 1rem;
+
+  & button{
+    width: 100%;
+    padding: .5rem;
+  }
+}
+
+.notes-list-container{
+  width: 100%;
+}
+
+.note-item{
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid;
+  cursor: pointer;
+
+}
+.note-item:hover{
+  background-color: rgb(238, 238, 238);
+}
+
+.note-tags{
+  display: flex;
+  gap: .5rem;
 }
