@@ -1,6 +1,6 @@
 #root {
-  max-width: 1280px;
   /* margin: 0 auto; */
+  width: 100%;
   padding: 1rem;
   text-align: center;
 }
@@ -10,6 +10,7 @@
   margin: 0;
   box-sizing: border-box;
   font-size: 16px;
+  scrollbar-width: none;
 }
 
 li {
@@ -18,9 +19,8 @@ li {
 
 .note-app-container{
   display: flex;
-  /* width: 1440px; */
+  width: 100%;
 }
-
 
 section{
   width: 100%;
@@ -109,6 +109,8 @@ section{
 }
 
 .tags-lists{
+  height: 460px;
+  overflow: auto;
   
   & li{
     display: flex;
@@ -124,17 +126,33 @@ section{
   }
 }
 
-.notes-wrapper{
-  max-width: 290px;
-  padding: 1rem;
+.content-wrapper{
+  /* max-width: 1148px; */
+  width: 100%;
+  padding: 0 1rem;
+}
 
+.notes-detail-wrapper{
+  display: flex;
+  width: 100%;
+}
+
+.content-sidebar-wrapper{
+  max-width: 300px;
+  width: 100%;
+  padding: 1.4rem 1rem;
+  border-right: 1px solid;
+  
   & button{
     width: 100%;
     padding: .5rem;
+    margin-bottom: 1rem;
   }
 }
 
 .notes-list-container{
+  max-height: 550px;
+  overflow: auto;
   width: 100%;
 }
 
@@ -152,4 +170,72 @@ section{
 .note-tags{
   display: flex;
   gap: .5rem;
+}
+
+.detailed-note-wrapper{
+  max-width: 630px;
+  width: 100%;
+  padding: 1.4rem 2rem;
+  border-right: 1px solid;
+}
+
+.detailed-note-header{
+  width: auto;
+  text-align: left;
+
+  & h2{
+    width: auto;
+  }
+}
+
+.detailed-note-tags{
+  display: flex;
+  gap: 1rem;
+  width: auto;
+
+  & span{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  & ul{
+    display: flex;
+    gap: .5rem;
+  }
+}
+
+.detailed-note-edited{
+  width: auto;
+  display: flex;
+  gap: 1rem;
+
+  & span{
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+.detailed-note-content{
+  text-align: left;
+}
+
+.action-btns-wrapper{
+  max-width: 270px;
+  width: 100%;
+  padding: 1.4rem 1rem;
+
+  & button{
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    width: 100%;;
+    min-width: max-content;
+    margin-bottom: 1rem;
+    border-radius: .6rem;
+    background-color: white;
+  }
 }

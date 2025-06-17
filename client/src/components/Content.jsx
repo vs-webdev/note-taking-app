@@ -1,9 +1,14 @@
 import { useState } from "react"
+import iconArchive from '../assets/images/icon-archive.svg'
+import iconDelete from '../assets/images/icon-delete.svg'
 import data from "../data"
 import Header from './Header.jsx'
+import ContentSidebar from "./ContentSidebar.jsx"
+import NoteContent from "./NoteContent.jsx"
 
 const Content = () => {
   const [notes, setNotes] = useState(data.notes)
+  const [selectedNote, setSelectedNote] = useState(notes[0])
   
   const dateFormat = (lastEdited) =>  new Date(lastEdited).toLocaleDateString("en-GB", {
     day: "2-digit",
@@ -12,27 +17,26 @@ const Content = () => {
   });
 
   return (
-    <div className='content-wrapper'>
+    <section className='content-wrapper'>
       <Header />
       <div className="notes-detail-wrapper">
-        <div className="notes-wrapper">
-          <button>Create New Note</button>
-          <div className="notes-list-container">
-            <ul className="notes-list">
-              {notes.map((note, index) =>
-                <li className="note-item" key={index}>
-                  <h1>{note.title}</h1>
-                  <ul className="note-tags">{note.tags.map((tag, tagIndex) =>
-                    <li key={tagIndex}>{tag}</li>
-                  )}</ul>
-                  <p>{dateFormat(note.lastEdited)}</p>
-                </li>
-              )}
-            </ul>
-          </div>
+        <ContentSidebar 
+          notes={notes} 
+          dateFormat={dateFormat}
+          setSelectedNote={setSelectedNote}
+        />
+
+        <NoteContent 
+          selectedNote={selectedNote}
+          dateFormat={dateFormat}
+        />
+
+        <div className="action-btns-wrapper">
+          <button><img src={iconArchive} alt="" /> Archive Notes</button>
+          <button><img src={iconDelete} alt="" /> Delete Notes</button>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
