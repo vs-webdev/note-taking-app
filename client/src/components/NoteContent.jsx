@@ -1,7 +1,9 @@
 import iconTag from '../assets/images/icon-tag.svg'
 import iconClock from '../assets/images/icon-clock.svg'
+import { useNote } from '../context/NoteContext'
 
-const NoteContent = ({selectedNote, dateFormat}) => {
+const NoteContent = ({dateFormat}) => {
+  const {selectedNote} = useNote()
   return (
     <div className="detailed-note-wrapper">
       <header className="detailed-note-header">

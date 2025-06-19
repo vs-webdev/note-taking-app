@@ -1,11 +1,13 @@
 import search from '../assets/images/icon-search.svg'
 import settings from '../assets/images/icon-settings.svg'
+import { useView } from '../context/ViewContext'
 
 const Header = () => {
+  const {views, currentView} = useView()
   
   return (
     <div className='header-container'>
-      <h1 className='page-title'>All Notes</h1>
+      <h1 className='page-title'>{views[currentView].headTitle}</h1>
 
       <div className="header-right">
         <div className="search-bar-container">
