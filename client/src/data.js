@@ -93,6 +93,42 @@ const data = {
             "content": "Custom Component Library Structure:\n\n1. Basic Components\n- Button\n- Input\n- Card\n- Modal\n\n2. Form Components\n- FormField\n- Select\n- Checkbox\n- RadioGroup\n\n3. Layout Components\n- Container\n- Grid\n- Flex\n\nAll components need:\n- TypeScript definitions\n- Unit tests\n- Storybook documentation\n- Accessibility support",
             "lastEdited": "2024-09-22T07:30:00Z",
         },
+    ],
+
+    settings: [
+        {
+            "title": "Color Theme",
+            "description": "Choose your color theme:",
+            "modes": [
+                {
+                    "themeTitle": "Light Mode",
+                    "themeDesc": "Pick a clean and classic light theme"
+                },
+                {
+                    "themeTitle": "Dark Mode",
+                    "themeDesc": "Select a sleek and modern dark theme"
+                },
+            ]
+        },
+        {
+            "title": "Font Theme",
+            "description": "Choose your font theme:",
+            "fonts": [
+                {
+                    "fontTitle": "Sans-serif",
+                    "fontDesc": "clean and modern, easy to read."
+                },
+                {
+                    "fontTitle": "Serif",
+                    "fontDesc": "Classic and elegant for a timeless feel."
+                },
+                {
+                    "fontTitle": "Monospace",
+                    "fontDesc": "Code-like, great for a technical vibe."
+                },
+            ]
+
+        },
     ]
 }
 
