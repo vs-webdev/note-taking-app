@@ -7,7 +7,7 @@ const ContentSidebar = ({dateFormat}) => {
 
   return (
     <div className="content-sidebar-wrapper">
-      <button>Create New Note</button>
+      {currentView !== 'settings' && <button>Create New Note</button>}
       <div className="notes-list-container">
         {currentView === 'allNotes' && <ul className="notes-list">
           {notes.map((note, index) =>

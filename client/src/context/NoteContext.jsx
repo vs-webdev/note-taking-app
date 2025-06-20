@@ -15,10 +15,11 @@ export const NoteProvider = ({children}) => {
   const [notes, setNotes] = useState(data.allNotes)
   const [archivedNotes, setArchivedNotes] = useState(data.archivedNotes)
   const [selectedNote, setSelectedNote] = useState(notes[0])
+
   const value = {
     notes, setNotes,
     archivedNotes, setArchivedNotes,
-    selectedNote, setSelectedNote
+    selectedNote, setSelectedNote,
   }
 
   return <NoteContext.Provider value={value}>

@@ -3,6 +3,7 @@
   width: 100%;
   padding: 1rem;
   text-align: center;
+  font-family: sans-serif;
 }
 
 *{
@@ -127,7 +128,6 @@ section{
 }
 
 .content-wrapper{
-  /* max-width: 1148px; */
   width: 100%;
   padding: 0 1rem;
 }
@@ -161,8 +161,8 @@ section{
   padding: 1rem;
   border-bottom: 1px solid;
   cursor: pointer;
-
 }
+
 .note-item:hover{
   background-color: rgb(238, 238, 238);
 }
@@ -238,4 +238,89 @@ section{
     border-radius: .6rem;
     background-color: white;
   }
+}
+
+.settings-view-wrapper{
+  display: flex;
+  width: 100%;
+}
+
+.settings-sidebar-wrapper{
+  max-width: 258px;
+  width: 100%;
+  padding: 1.4rem 1rem;
+  border-right: 1px solid;
+}
+
+.settings-list-container{
+  max-height: 550px;
+  overflow: auto;
+  width: 100%;
+}
+
+.settings-item{
+  text-align: left;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.settings-options-wrapper{
+  width: 100%;
+  padding: 2rem;
+  /* border-right: 1px solid; */
+}
+
+.setting-header{
+  width: auto;
+  text-align: left;
+
+  & h2{
+    width: auto;
+  }
+}
+
+.active-setting{
+  background-color: rgb(244, 244, 244);
+}
+
+.options-list-container{
+  max-width: 450px;
+  width: 100%;
+  text-align: left;
+}
+
+.option{
+  border: 1px solid;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1rem;
+  border-radius: 1rem;
+}
+
+.active-option{
+  background-color: rgb(244, 244, 244);
+
+  & .right{
+    border-color: rgb(85, 85, 255);
+  }
+}
+
+.left {
+  display: flex;
+
+  & div{
+    margin-left: 1rem;
+  }
+}
+
+.right{
+  border: 4.5px solid;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 100%;
+  border-color: rgb(222, 222, 222);
 }

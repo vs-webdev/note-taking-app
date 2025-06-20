@@ -3,7 +3,7 @@ import settings from '../assets/images/icon-settings.svg'
 import { useView } from '../context/ViewContext'
 
 const Header = () => {
-  const {views, currentView} = useView()
+  const {views, currentView, setCurrentView} = useView()
   
   return (
     <div className='header-container'>
@@ -18,7 +18,9 @@ const Header = () => {
             type="text"
           />
         </div>
-        <button className='setting-btn'>
+        <button className='setting-btn'
+          onClick={() => setCurrentView('settings')}
+        >
           <img src={settings} alt="Settings" />
         </button>
       </div>

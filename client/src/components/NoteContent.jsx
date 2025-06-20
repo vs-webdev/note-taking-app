@@ -4,6 +4,7 @@ import { useNote } from '../context/NoteContext'
 
 const NoteContent = ({dateFormat}) => {
   const {selectedNote} = useNote()
+  
   return (
     <div className="detailed-note-wrapper">
       <header className="detailed-note-header">

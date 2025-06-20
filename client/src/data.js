@@ -98,33 +98,40 @@ const data = {
     settings: [
         {
             "title": "Color Theme",
-            "description": "Choose your color theme:",
-            "modes": [
+            "desc": "Choose your color theme:",
+            "id": 0,
+            "options": [
                 {
-                    "themeTitle": "Light Mode",
-                    "themeDesc": "Pick a clean and classic light theme"
+                    "optionTitle": "Light Mode",
+                    "optionDesc": "Pick a clean and classic light theme",
+                    "id": 0,
                 },
                 {
-                    "themeTitle": "Dark Mode",
-                    "themeDesc": "Select a sleek and modern dark theme"
+                    "optionTitle": "Dark Mode",
+                    "optionDesc": "Select a sleek and modern dark theme",
+                    "id": 1,
                 },
             ]
         },
         {
             "title": "Font Theme",
-            "description": "Choose your font theme:",
-            "fonts": [
+            "desc": "Choose your font theme:",
+            "id": 1,
+            "options": [
                 {
-                    "fontTitle": "Sans-serif",
-                    "fontDesc": "clean and modern, easy to read."
+                    "optionTitle": "Sans-serif",
+                    "optionDesc": "Clean and modern, easy to read.",
+                    "id": 0,
                 },
                 {
-                    "fontTitle": "Serif",
-                    "fontDesc": "Classic and elegant for a timeless feel."
+                    "optionTitle": "Serif",
+                    "optionDesc": "Classic and elegant for a timeless feel.",
+                    "id": 1,
                 },
                 {
-                    "fontTitle": "Monospace",
-                    "fontDesc": "Code-like, great for a technical vibe."
+                    "optionTitle": "Monospace",
+                    "optionDesc": "Code-like, great for a technical vibe.",
+                    "id": 2,
                 },
             ]
 
