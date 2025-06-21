@@ -1,5 +1,5 @@
 const data = {
-    allNotes: [
+    notes: [
         {
             "title": "React Performance Optimization",
             "tags": ["Dev", "React"],
@@ -73,27 +73,6 @@ const data = {
     ],
 
     tags: ['Cooking', 'Dev', 'Fitness', 'Health', 'Personal', 'React', 'Recipes', 'Shopping', 'Travel', 'TypeScript'],
-
-    archivedNotes: [
-        {
-            "title": "TypeScript Migration Guide",
-            "tags": ["Dev", "React", "TypeScript"],
-            "content": "Project migration steps:\n\n1. Initial Setup\n- Install TypeScript dependencies\n- Configure tsconfig.json\n- Set up build pipeline\n\n2. Migration Strategy\n- Start with newer modules\n- Add type definitions gradually\n- Use 'any' temporarily for complex cases\n\n3. Testing Approach\n- Update test configuration\n- Add type testing\n- Validate build process\n\nDeadline: End of Q4 2024",
-            "lastEdited": "2024-09-22T07:30:00Z",
-        },
-        {
-            "title": "Gift Ideas",
-            "tags": ["Personal", "Shopping"],
-            "content": "Birthday and Holiday Gift List:\n\nMom:\n- Cooking class subscription\n- Kindle Paperwhite\n- Spa day package\n\nDad:\n- Golf lessons\n- Wireless earbuds\n- BBQ accessories\n\nSister:\n- Art supplies set\n- Yoga mat kit\n- Coffee subscription\n\nBudget per person: $150-200",
-            "lastEdited": "2024-09-22T07:30:00Z",
-        },
-        {
-            "title": "React Component Library",
-            "tags": ["Dev", "React"],
-            "content": "Custom Component Library Structure:\n\n1. Basic Components\n- Button\n- Input\n- Card\n- Modal\n\n2. Form Components\n- FormField\n- Select\n- Checkbox\n- RadioGroup\n\n3. Layout Components\n- Container\n- Grid\n- Flex\n\nAll components need:\n- TypeScript definitions\n- Unit tests\n- Storybook documentation\n- Accessibility support",
-            "lastEdited": "2024-09-22T07:30:00Z",
-        },
-    ],
 
     settings: [
         {
