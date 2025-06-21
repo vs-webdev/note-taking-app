@@ -5,18 +5,24 @@ import archives from '../assets/images/icon-archive.svg'
 import logo from '../assets/images/logo.svg'
 import { useView } from '../context/ViewContext.jsx'
 import { useNote } from '../context/NoteContext.jsx'
+import { useSettings } from '../context/SettingContext.jsx'
 
 const NavSidebar = () => {
   const {setCurrentView} = useView()
-  const {setSelectedNote} = useNote()
+  const { setSelectedTag } = useNote()
+  const {selectedFont} = useSettings()
 
-  const handleViewNav = (word) => {
-    setCurrentView(word)
-    setSelectedNote(data[word][0])
+  const handleViewNav = (view, tag) => {
+    if (view === 'tagNotes'){
+      setCurrentView(view)
+      setSelectedTag(tag)
+      return;
+    }
+    setCurrentView(view)
   }
 
   return (
-    <div className='sidebar-container'>
+    <nav className='sidebar-container' style={{fontFamily: `${selectedFont.optionTitle}`}}>
       <div className="logo">
         <img src={logo} alt="" />
       </div>
@@ -35,7 +41,7 @@ const NavSidebar = () => {
         <ul className="tags-lists">
           {
             data.tags.map(tag =>
-              <li>
+              <li onClick={() => handleViewNav('tagNotes', tag)}>
                 <img src={tagIcon} alt="Tag Icon" />
                 {tag}
               </li>
@@ -43,7 +49,7 @@ const NavSidebar = () => {
           }
         </ul>
       </div>
-    </div>
+    </nav>
   )
 }
 

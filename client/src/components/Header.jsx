@@ -1,13 +1,15 @@
 import search from '../assets/images/icon-search.svg'
 import settings from '../assets/images/icon-settings.svg'
+import { useNote } from '../context/NoteContext'
 import { useView } from '../context/ViewContext'
 
 const Header = () => {
   const {views, currentView, setCurrentView} = useView()
+  const {selectedTag} = useNote()
   
   return (
     <div className='header-container'>
-      <h1 className='page-title'>{views[currentView].headTitle}</h1>
+      <h1 className='page-title'>{views[currentView].headTitle} {currentView === 'tagNotes' && selectedTag}</h1>
 
       <div className="header-right">
         <div className="search-bar-container">

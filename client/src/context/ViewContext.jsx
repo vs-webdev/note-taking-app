@@ -7,6 +7,9 @@ const views = {
   archivedNotes: {
     headTitle: 'Archived Notes',
   },
+  tagNotes: {
+    headTitle: 'Notes Tagged:'
+  },
   settings: {
     headTitle: 'Settings',
   }

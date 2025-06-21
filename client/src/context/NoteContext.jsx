@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useView } from "./ViewContext";
 import data from "../data";
 
 const NoteContext = createContext()
@@ -12,14 +13,41 @@ export const useNote = () => {
 }
 
 export const NoteProvider = ({children}) => {
-  const [notes, setNotes] = useState(data.allNotes)
-  const [archivedNotes, setArchivedNotes] = useState(data.archivedNotes)
+  const {currentView} = useView()
+  const [allNotes, setAllNotes] = useState(data.notes)
+  const initialNotes = allNotes.filter(note => !note.isArchived)
+  const [notes, setNotes] = useState(initialNotes)
+  const [selectedTag, setSelectedTag] = useState('')
   const [selectedNote, setSelectedNote] = useState(notes[0])
+
+  useEffect(() => {
+    if (currentView === 'allNotes') setNotes(allNotes.filter(note => !note.isArchived))
+    
+    if (currentView === 'archivedNotes') setNotes(allNotes.filter(note => note.isArchived))
+    
+    if (currentView === 'tagNotes'){
+      const newTaggedList = allNotes.filter(note => note.tags.find(tag => tag === selectedTag))
+      setNotes(newTaggedList)
+    }
+    
+  }, [currentView])
+  
+  useEffect(() => {
+    if (selectedTag){
+      const newTaggedList = allNotes.filter(note => note.tags.find(tag => tag === selectedTag))
+      setNotes(newTaggedList)
+    }
+  }, [selectedTag])
+  
+  useEffect(() => {
+    setSelectedNote(notes[0])
+  }, [notes])
 
   const value = {
     notes, setNotes,
-    archivedNotes, setArchivedNotes,
+    allNotes, setAllNotes,
     selectedNote, setSelectedNote,
+    selectedTag, setSelectedTag,
   }
 
   return <NoteContext.Provider value={value}>
