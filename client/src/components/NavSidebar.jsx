@@ -6,6 +6,7 @@ import logo from '../assets/images/logo.svg'
 import { useView } from '../context/ViewContext.jsx'
 import { useNote } from '../context/NoteContext.jsx'
 import { useSettings } from '../context/SettingContext.jsx'
+import {v4 as uuidv4} from 'uuid'
 
 const NavSidebar = () => {
   const {setCurrentView} = useView()
@@ -14,9 +15,7 @@ const NavSidebar = () => {
 
   const handleViewNav = (view, tag) => {
     if (view === 'tagNotes'){
-      setCurrentView(view)
       setSelectedTag(tag)
-      return;
     }
     setCurrentView(view)
   }
@@ -41,7 +40,7 @@ const NavSidebar = () => {
         <ul className="tags-lists">
           {
             data.tags.map(tag =>
-              <li onClick={() => handleViewNav('tagNotes', tag)}>
+              <li key={uuidv4()} onClick={() => handleViewNav('tagNotes', tag)}>
                 <img src={tagIcon} alt="Tag Icon" />
                 {tag}
               </li>

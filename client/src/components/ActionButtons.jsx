@@ -6,9 +6,10 @@ import { useNote } from "../context/NoteContext"
 
 const ActionButtons = () => {
   const {currentView} = useView()
-  const {setModalData, setIsModalOpen} = useNote()
+  const {setModalData, setIsModalOpen, selectedNote} = useNote()
 
   const handleOnAction = (icon, title) => {
+    if (!selectedNote) return;
     setIsModalOpen(true)
     setModalData({
       icon,

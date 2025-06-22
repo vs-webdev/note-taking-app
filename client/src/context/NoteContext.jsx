@@ -18,30 +18,33 @@ export const NoteProvider = ({children}) => {
   const initialNotes = allNotes.filter(note => !note.isArchived)
   const [notes, setNotes] = useState(initialNotes)
   const [selectedTag, setSelectedTag] = useState('')
-  const [selectedNote, setSelectedNote] = useState(notes[0])
+  const [selectedNote, setSelectedNote] = useState(notes[0] || null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalData, setModalData] = useState({icon: null, title: ''})
 
-  useEffect(() => {
-    if (currentView === 'allNotes') setNotes(allNotes.filter(note => !note.isArchived))
-    
-    if (currentView === 'archivedNotes') setNotes(allNotes.filter(note => note.isArchived))
-    
-    if (currentView === 'tagNotes'){
-      const newTaggedList = allNotes.filter(note => note.tags.find(tag => tag === selectedTag))
-      setNotes(newTaggedList)
+  const filterNotesByView = () => {
+    switch(currentView){
+      case 'allNotes':
+        return allNotes.filter(note => !note.isArchived)
+
+      case 'archivedNotes':
+        return allNotes.filter(note => note.isArchived)
+
+      case 'tagNotes':
+        return allNotes.filter(note => note.tags.includes(selectedTag))
+
+      default:
+        return []
     }
-  }, [currentView, allNotes])
+  }
+
+  useEffect(() => {
+    const filteredNotes = filterNotesByView()
+    setNotes(filteredNotes)
+  }, [currentView, allNotes, selectedTag])
   
   useEffect(() => {
-    if (selectedTag){
-      const newTaggedList = allNotes.filter(note => note.tags.find(tag => tag === selectedTag))
-      setNotes(newTaggedList)
-    }
-  }, [selectedTag])
-  
-  useEffect(() => {
-    setSelectedNote(notes[0])
+    setSelectedNote(notes.length > 0 ? notes[0] : null)
   }, [notes])
 
   const value = {

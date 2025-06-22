@@ -8,10 +8,10 @@ const ContentSidebar = ({dateFormat}) => {
   return (
     <div className="content-sidebar-wrapper">
       <button>Create New Note</button>
-      <div className="notes-list-container">
+      {currentView === 'archivedNotes' && <p>All your archived notes are stored here. You can restore or delete them anytime.</p>}
+      {currentView === 'tagNotes' && <p>All notes tagged with '{selectedTag}' are stored here.</p>}
+      {notes.length > 0 && <div className="notes-list-container">
         <ul className="notes-list">
-          {currentView === 'archivedNotes' && <p>All your archived notes are stored here. You can restore or delete them anytime.</p>}
-          {currentView === 'tagNotes' && <p>All notes tagged with '{selectedTag}' are stored here.</p>}
           {notes.map((note, index) =>
             <li className="note-item" key={index}
               onClick={() => setSelectedNote(notes[index])}
@@ -24,7 +24,7 @@ const ContentSidebar = ({dateFormat}) => {
             </li>
           )}
         </ul>
-      </div>
+      </div>}
     </div>
   )
 }
