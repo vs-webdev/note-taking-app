@@ -19,6 +19,8 @@ export const NoteProvider = ({children}) => {
   const [notes, setNotes] = useState(initialNotes)
   const [selectedTag, setSelectedTag] = useState('')
   const [selectedNote, setSelectedNote] = useState(notes[0])
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalData, setModalData] = useState({icon: null, title: ''})
 
   useEffect(() => {
     if (currentView === 'allNotes') setNotes(allNotes.filter(note => !note.isArchived))
@@ -29,8 +31,7 @@ export const NoteProvider = ({children}) => {
       const newTaggedList = allNotes.filter(note => note.tags.find(tag => tag === selectedTag))
       setNotes(newTaggedList)
     }
-    
-  }, [currentView])
+  }, [currentView, allNotes])
   
   useEffect(() => {
     if (selectedTag){
@@ -48,6 +49,8 @@ export const NoteProvider = ({children}) => {
     allNotes, setAllNotes,
     selectedNote, setSelectedNote,
     selectedTag, setSelectedTag,
+    isModalOpen, setIsModalOpen,
+    modalData, setModalData,
   }
 
   return <NoteContext.Provider value={value}>
