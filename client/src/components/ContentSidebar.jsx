@@ -3,11 +3,11 @@ import { useView } from "../context/ViewContext"
 
 const ContentSidebar = ({dateFormat}) => {
   const {currentView} = useView()
-  const {notes, setSelectedNote, selectedTag} = useNote()
+  const {notes, setSelectedNote, selectedTag, setShowNewNote} = useNote()
 
   return (
     <div className="content-sidebar-wrapper">
-      <button>Create New Note</button>
+      <button onClick={() => setShowNewNote(true)}>Create New Note</button>
       {currentView === 'archivedNotes' && <p>All your archived notes are stored here. You can restore or delete them anytime.</p>}
       {currentView === 'tagNotes' && <p>All notes tagged with '{selectedTag}' are stored here.</p>}
       {notes.length > 0 && <div className="notes-list-container">

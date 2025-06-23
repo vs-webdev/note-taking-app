@@ -14,6 +14,7 @@ export const useNote = () => {
 
 export const NoteProvider = ({children}) => {
   const {currentView} = useView()
+  const [tags, setTags] = useState(data.tags)
   const [allNotes, setAllNotes] = useState(data.notes)
   const initialNotes = allNotes.filter(note => !note.isArchived)
   const [notes, setNotes] = useState(initialNotes)
@@ -21,6 +22,7 @@ export const NoteProvider = ({children}) => {
   const [selectedNote, setSelectedNote] = useState(notes[0] || null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalData, setModalData] = useState({icon: null, title: ''})
+  const [showNewNote, setShowNewNote] = useState(false)
 
   const filterNotesByView = () => {
     switch(currentView){
@@ -48,12 +50,14 @@ export const NoteProvider = ({children}) => {
   }, [notes])
 
   const value = {
+    tags, setTags,
     notes, setNotes,
     allNotes, setAllNotes,
     selectedNote, setSelectedNote,
     selectedTag, setSelectedTag,
     isModalOpen, setIsModalOpen,
     modalData, setModalData,
+    showNewNote, setShowNewNote,
   }
 
   return <NoteContext.Provider value={value}>
