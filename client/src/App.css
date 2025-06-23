@@ -103,6 +103,10 @@ section{
 
 .notes-nav-active{
   background-color: #f3f5f8;
+  background-image: url('./assets/images/icon-chevron-right.svg');
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+  background-size: 12%;
 }
 
 .tags-container{

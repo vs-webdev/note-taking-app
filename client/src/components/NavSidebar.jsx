@@ -1,16 +1,15 @@
-import data from '../data.js'
-import tagIcon from '../assets/images/icon-tag.svg'
-import allNotes from '../assets/images/icon-home.svg'
-import archives from '../assets/images/icon-archive.svg'
-import logo from '../assets/images/logo.svg'
 import { useView } from '../context/ViewContext.jsx'
 import { useNote } from '../context/NoteContext.jsx'
 import { useSettings } from '../context/SettingContext.jsx'
 import {v4 as uuidv4} from 'uuid'
+import tagIcon from '../assets/images/icon-tag.svg'
+import homeIcon from '../assets/images/icon-home.svg'
+import archiveIcon from '../assets/images/icon-archive.svg'
+import logo from '../assets/images/logo.svg'
 
 const NavSidebar = () => {
-  const {setCurrentView} = useView()
-  const { setSelectedTag } = useNote()
+  const {setCurrentView, currentView} = useView()
+  const {setSelectedTag, selectedTag, tags} = useNote()
   const {selectedFont} = useSettings()
 
   const handleViewNav = (view, tag) => {
@@ -26,12 +25,12 @@ const NavSidebar = () => {
         <img src={logo} alt="" />
       </div>
       <div className='notes-nav'>
-        <div className='notes-nav-active' onClick={() => handleViewNav('allNotes')}>
-          <img src={allNotes} alt="All Notes" />
+        <div className={`${currentView === 'allNotes' ? "notes-nav-active" : ""}`} onClick={() => handleViewNav('allNotes')}>
+          <img src={homeIcon} alt="All Notes" />
            All Notes
         </div>
-        <div className='' onClick={() => handleViewNav('archivedNotes')}> 
-          <img src={archives} alt="Archives" />
+        <div className={`${currentView === 'archivedNotes' && "notes-nav-active"}`} onClick={() => handleViewNav('archivedNotes')}> 
+          <img src={archiveIcon} alt="Archives" />
           Archived Notes
         </div>
       </div>
@@ -39,8 +38,12 @@ const NavSidebar = () => {
         <h2>Tags</h2>
         <ul className="tags-lists">
           {
-            data.tags.map(tag =>
-              <li key={uuidv4()} onClick={() => handleViewNav('tagNotes', tag)}>
+            tags.map(tag =>
+              <li 
+                className={`${(currentView === 'tagNotes' && selectedTag === tag) && "notes-nav-active"}`}
+                key={uuidv4()} 
+                onClick={() => handleViewNav('tagNotes', tag)}
+              >
                 <img src={tagIcon} alt="Tag Icon" />
                 {tag}
               </li>
