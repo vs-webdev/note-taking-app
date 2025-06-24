@@ -10,12 +10,15 @@ const views = {
   tagNotes: {
     headTitle: 'Notes Tagged:'
   },
+  searchNotes: {
+    headTitle: 'Search'
+  },
   settings: {
     headTitle: 'Settings',
   }
 }
 
-const ViewContext = createContext()
+const ViewContext = createContext(null)
 
 export const useView = () => {
   const context = useContext(ViewContext)

@@ -73,7 +73,7 @@ const NoteContent = ({dateFormat}) => {
             onChange={e => setEditData(prev => ({...prev, title: e.target.value}))}
             />
           ) : (
-            <h2 onClick={() => startEditing('title')}>{selectedNote.title}</h2>
+            <h2 onClick={() => startEditing('title')}>{selectedNote?.title}</h2>
           )}
         </div>
 
@@ -86,7 +86,7 @@ const NoteContent = ({dateFormat}) => {
               onChange={e => setEditData(prev => ({...prev, tags: e.target.value}))}
             />
           ) : (
-            <ul onClick={() => startEditing('tags')}>{selectedNote.tags.map((tag, tagIndex) => 
+            <ul onClick={() => startEditing('tags')}>{selectedNote?.tags?.map((tag, tagIndex) => 
               <li key={tagIndex}>{tag}</li>
             )}</ul>
           )}
@@ -107,7 +107,7 @@ const NoteContent = ({dateFormat}) => {
           >
           </textarea>
         ) : (
-          <pre onClick={() => startEditing('content')} className='detailed-note-content'>{selectedNote.content}</pre>
+          <pre onClick={() => startEditing('content')} className='detailed-note-content'>{selectedNote?.content}</pre>
         )}
       </div>
 

@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import data from "../data";
 
-const SettingContext = createContext()
+const SettingContext = createContext(null)
 
 export const useSettings = () => {
   const context = useContext(SettingContext)

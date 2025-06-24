@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useView } from "./ViewContext";
 import data from "../data";
 
-const NoteContext = createContext()
+const NoteContext = createContext(null)
 
 export const useNote = () => {
   const context = useContext(NoteContext)
@@ -23,6 +23,7 @@ export const NoteProvider = ({children}) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalData, setModalData] = useState({icon: null, title: ''})
   const [showNewNote, setShowNewNote] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
 
   const filterNotesByView = () => {
     switch(currentView){
@@ -35,6 +36,16 @@ export const NoteProvider = ({children}) => {
       case 'tagNotes':
         return allNotes.filter(note => note.tags.includes(selectedTag))
 
+      case 'searchNotes': {
+        if (!searchValue) return []
+          return allNotes.filter(note =>  (
+              note.title.toLowerCase().includes(searchValue) ||
+              note.content.toLowerCase().includes(searchValue) ||
+              note.tags.some(tag => tag.toLowerCase().includes(searchValue))
+            )
+          )
+      }
+
       default:
         return []
     }
@@ -46,7 +57,7 @@ export const NoteProvider = ({children}) => {
       (a, b) => new Date(b.lastEdited) - new Date(a.lastEdited)
     )
     setNotes(sortedNotes)
-  }, [currentView, allNotes, selectedTag])
+  }, [currentView, allNotes, selectedTag, searchValue])
   
   useEffect(() => {
     setSelectedNote(notes.length > 0 ? notes[0] : null)
@@ -61,6 +72,7 @@ export const NoteProvider = ({children}) => {
     isModalOpen, setIsModalOpen,
     modalData, setModalData,
     showNewNote, setShowNewNote,
+    searchValue, setSearchValue,
   }
 
   return <NoteContext.Provider value={value}>

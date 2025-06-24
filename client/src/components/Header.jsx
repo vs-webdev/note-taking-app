@@ -5,7 +5,12 @@ import { useView } from '../context/ViewContext'
 
 const Header = () => {
   const {views, currentView, setCurrentView} = useView()
-  const {selectedTag} = useNote()
+  const {selectedTag, setSearchValue, searchValue} = useNote()
+
+  const onSearchChange = e => {
+    setCurrentView('searchNotes')
+    setSearchValue(e.target.value.trim().toLowerCase())
+  }
   
   return (
     <div className='header-container'>
@@ -15,9 +20,11 @@ const Header = () => {
         <div className="search-bar-container">
           <img src={search} alt="" />
           <input
+            type="text"
             className='search-bar'
             placeholder='Search by title, content or tags...'
-            type="text"
+            value={searchValue}
+            onChange={e => onSearchChange(e)}
           />
         </div>
         <button className='setting-btn'
