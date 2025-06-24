@@ -42,7 +42,10 @@ export const NoteProvider = ({children}) => {
 
   useEffect(() => {
     const filteredNotes = filterNotesByView()
-    setNotes(filteredNotes)
+    const sortedNotes = [...filteredNotes].sort(
+      (a, b) => new Date(b.lastEdited) - new Date(a.lastEdited)
+    )
+    setNotes(sortedNotes)
   }, [currentView, allNotes, selectedTag])
   
   useEffect(() => {

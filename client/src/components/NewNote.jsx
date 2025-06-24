@@ -15,7 +15,6 @@ const NewNote = () => {
       return validateData.length
     })
     if (validate.length !== 3){
-      console.log('no')
       return
     }
     let newNoteTags = newNoteData.tags
