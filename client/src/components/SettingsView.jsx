@@ -13,11 +13,9 @@ const SettingsView = () => {
   const fontIcons = [sansSerifIcon, serifIcon, monospaceIcon]
 
   const handleOption = (optionIndex) => {
-    if (selectedSetting.id === 0){
-      setSelectedTheme(settings[0].options[optionIndex])
-    } else {
+    selectedSetting.id === 0 ?
+      setSelectedTheme(settings[0].options[optionIndex]) :
       setSelectedFont(settings[1].options[optionIndex])
-    }
   }
 
   return (
@@ -44,9 +42,9 @@ const SettingsView = () => {
           <ul className="options-list-container">
             {selectedSetting.options.map((option, optIndex) => {
               const isColorTheme = selectedSetting.title === 'Color Theme'
-              const isActive = isColorTheme 
-              ? selectedTheme.id === optIndex
-              : selectedFont.id === optIndex
+              const isActive = isColorTheme ? 
+                selectedTheme.id === optIndex : 
+                selectedFont.id === optIndex
 
               return (<li className={`option ${isActive && 'active-option'}`} 
                 key={optIndex}

@@ -14,7 +14,9 @@ const ContentSidebar = ({dateFormat}) => {
       {notes.length > 0 && <div className="notes-list-container">
         <ul className="notes-list">
           {notes.map((note, index) =>
-            <li className="note-item" key={index}
+            <li 
+              className="note-item" 
+              key={index}
               onClick={() => setSelectedNote(notes[index])}
             >
               <h1>{note.title}</h1>

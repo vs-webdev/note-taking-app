@@ -64,13 +64,14 @@ const NoteContent = ({dateFormat}) => {
   
   return (
     <div className="detailed-note-wrapper">
-      {notes.length > 0 ? <><header className="detailed-note-header">
+      {notes.length > 0 ? 
+      <><header className="detailed-note-header">
         <div className="detailed-note-title">
           {isEditing.title ? (
             <input
-            type="text"
-            value={editData?.title}
-            onChange={e => setEditData(prev => ({...prev, title: e.target.value}))}
+              type="text"
+              value={editData?.title}
+              onChange={e => setEditData(prev => ({...prev, title: e.target.value}))}
             />
           ) : (
             <h2 onClick={() => startEditing('title')}>{selectedNote?.title}</h2>

@@ -26,7 +26,7 @@ const NewNote = () => {
         return existingTag || tag
       })
 
-    // Updating tags with new tags
+    // Updating Data tags with new tags
     setTags(prev => {
       const mergedTags = [...prev, ...newNoteTags]
       const uniqueTags = Array.from(new Set(mergedTags))

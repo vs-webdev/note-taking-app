@@ -27,11 +27,11 @@ const NavSidebar = () => {
       <div className='notes-nav'>
         <div className={`${currentView === 'allNotes' ? "notes-nav-active" : ""}`} onClick={() => handleViewNav('allNotes')}>
           <img src={homeIcon} alt="All Notes" />
-           All Notes
+           <span>All Notes</span>
         </div>
         <div className={`${currentView === 'archivedNotes' && "notes-nav-active"}`} onClick={() => handleViewNav('archivedNotes')}> 
           <img src={archiveIcon} alt="Archives" />
-          Archived Notes
+          <span>Archived Notes</span>
         </div>
       </div>
       <div className="tags-container">
@@ -45,7 +45,7 @@ const NavSidebar = () => {
                 onClick={() => handleViewNav('tagNotes', tag)}
               >
                 <img src={tagIcon} alt="Tag Icon" />
-                {tag}
+                <span>{tag}</span>
               </li>
             )
           }

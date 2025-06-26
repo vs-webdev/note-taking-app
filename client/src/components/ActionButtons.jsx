@@ -20,14 +20,21 @@ const ActionButtons = () => {
   return (<>
     <div className="action-btns-wrapper">
       {(currentView === 'allNotes' || currentView === 'tagNotes') && <>
-        <button onClick={() => handleOnAction(iconArchive, 'Archive Note')}><img src={iconArchive} /> Archive Note</button>
-        <button onClick={() => handleOnAction(iconDelete, 'Delete Note')} ><img src={iconDelete} /> Delete Note</button>
+        <button onClick={() => handleOnAction(iconArchive, 'Archive Note')}>
+          <img src={iconArchive} /> 
+          <span>Archive Note</span>
+        </button>
       </>} 
-      {currentView === 'archivedNotes' && <>
-        <button onClick={() => handleOnAction(iconRestore, 'Restore Note')} ><img src={iconRestore} /> Restore Note</button>
-        <button onClick={() => handleOnAction(iconDelete, 'Delete Note')} ><img src={iconDelete} /> Delete Note</button>
-      </>
+      {currentView === 'archivedNotes' && 
+        <button onClick={() => handleOnAction(iconRestore, 'Restore Note')} >
+          <img src={iconRestore} /> 
+          <span>Restore Note</span>
+        </button>
       }
+      <button onClick={() => handleOnAction(iconDelete, 'Delete Note')} >
+        <img src={iconDelete} /> 
+        <span>Delete Note</span>
+      </button>
     </div>
   </>)
 }

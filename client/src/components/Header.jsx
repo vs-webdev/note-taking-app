@@ -1,4 +1,4 @@
-import search from '../assets/images/icon-search.svg'
+import searchIcon from '../assets/images/icon-search.svg'
 import settings from '../assets/images/icon-settings.svg'
 import { useNote } from '../context/NoteContext'
 import { useView } from '../context/ViewContext'
@@ -18,7 +18,7 @@ const Header = () => {
 
       <div className="header-right">
         <div className="search-bar-container">
-          <img src={search} alt="" />
+          <img src={searchIcon} alt="Search Icon" />
           <input
             type="text"
             className='search-bar'
