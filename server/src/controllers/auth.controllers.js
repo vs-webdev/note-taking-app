@@ -1,4 +1,5 @@
 import userModel from "../models/userModel.js";
+import jwt from "jsonwebtoken"
 import bcrypt from "bcryptjs"
 
 export const userRegister = async (req, res) => {
@@ -39,6 +40,15 @@ export const userLogin = async (req, res) => {
     if (!isMatch){
       return res.status(400).json({success: false, message: "Invalid Password!"})
     }
+
+    const token = jwt.sign(user._id, process.env.JWT_SECRET, {expiresIn: '1h'})
+
+    res.cookie('jwt', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== 'development',
+      sameSite: 'strict',
+      maxAge: 60 * 60 * 1000,
+    })
 
     return res.status(201).json({success: true, message: "Login Successfully!"})
   } catch (error) {
