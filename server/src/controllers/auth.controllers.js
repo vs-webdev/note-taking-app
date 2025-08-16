@@ -41,17 +41,31 @@ export const userLogin = async (req, res) => {
       return res.status(400).json({success: false, message: "Invalid Password!"})
     }
 
-    const token = jwt.sign(user._id, process.env.JWT_SECRET, {expiresIn: '1h'})
+    const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET, {expiresIn: '1h'})
 
     res.cookie('jwt', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV !== 'development',
-      sameSite: 'strict',
+      sameSite: process.env.NODE_ENV !== 'development' ? 'none' : 'strict',
       maxAge: 60 * 60 * 1000,
     })
 
-    return res.status(201).json({success: true, message: "Login Successfully!"})
+    return res.status(200).json({success: true, message: "Login Successful!"})
   } catch (error) {
     return res.status(500).json({success: false, message: error.message})
+  }
+}
+
+export const logout = async (req, res) => {
+  try {
+    res.clearCookie('jwt', {
+      httpOnly: true, 
+      secure: process.env.NODE_ENV !== 'development',
+      sameSite: process.env.NODE_ENV !== 'development' ? 'none' : 'strict'
+    })
+
+    return res.status(200).json({success: true, message: "Logout Successful!"})
+  } catch (error) {
+    res.status(500).json({success: false, message: `Logout failed: ${error.message}`})
   }
 }
