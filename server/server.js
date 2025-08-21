@@ -3,6 +3,7 @@ import express from 'express'
 import mongoose from 'mongoose';
 import authRouter from './src/routes/auth.routes.js';
 import cors from "cors"
+import cookieParser from 'cookie-parser';
 
 const app = express();
 const PORT = process.env.PORT;
@@ -13,6 +14,7 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }))
+app.use(cookieParser())
 
 app.use("/api/auth", authRouter)
 

@@ -70,3 +70,15 @@ export const logout = async (req, res) => {
     res.status(500).json({success: false, message: `Logout failed: ${error.message}`})
   }
 }
+
+export const refresh = async (req, res) => {
+  const token = req.cookies?.jwt;
+  if (!token) return res.status(401).json({success: false, message: 'No token found.'})
+  try {
+    const user = jwt.verify(token, process.env.JWT_SECRET)
+    const newAccessToken = jwt.sign({userId: user.userId}, process.env.JWT_SECRET, {expiresIn: '15m'})
+    res.json({success: true, accessToken: newAccessToken})
+  } catch (error) {
+    res.status(500).json({success: false, message: 'Invalid token'})
+  }
+}
