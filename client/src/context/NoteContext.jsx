@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useView } from "./ViewContext";
-import data from "../data";
+import { useApi } from "../api/axioinstance";
 
 const NoteContext = createContext(null)
 
@@ -13,9 +13,10 @@ export const useNote = () => {
 }
 
 export const NoteProvider = ({children}) => {
+  const api = useApi()
   const {currentView} = useView()
-  const [tags, setTags] = useState(data.tags)
-  const [allNotes, setAllNotes] = useState(data.notes)
+  const [tags, setTags] = useState([])
+  const [allNotes, setAllNotes] = useState([])
   const initialNotes = allNotes.filter(note => !note.isArchived)
   const [notes, setNotes] = useState(initialNotes)
   const [selectedTag, setSelectedTag] = useState('')
@@ -51,6 +52,24 @@ export const NoteProvider = ({children}) => {
     }
   }
 
+  useEffect(() => {
+    const getNotes = async () => {
+      const res = await api.get("/user/notes")
+      if (res.data.success) setAllNotes(res.data.notes || [])
+    }
+    getNotes()
+
+    const getTags = async () => {
+      try {
+        const res = await api.get("/user/tags")
+        if(res.data.success) setTags(res.data.tags)
+      } catch (error) {
+        console.log("error in getTags", error)
+      }
+    }
+    getTags()
+  }, [])
+  
   useEffect(() => {
     const filteredNotes = filterNotesByView()
     const sortedNotes = [...filteredNotes].sort(
