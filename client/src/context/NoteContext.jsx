@@ -61,7 +61,7 @@ export const NoteProvider = ({children}) => {
 
     const getTags = async () => {
       try {
-        const res = await api.get("/user/tags")
+        const res = await api.get("/user/notes/tags")
         if(res.data.success) setTags(res.data.tags)
       } catch (error) {
         console.log("error in getTags", error)

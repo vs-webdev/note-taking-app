@@ -4,10 +4,10 @@ import { createNote, deleteNote, getNotes, getTags, updateNote } from "../contro
 
 const noteRouter = express.Router()
 
-noteRouter.get("/notes", verifyToken, getNotes)
 noteRouter.get("/tags", verifyToken, getTags)
-noteRouter.post("/notes", verifyToken, createNote)
-noteRouter.put("/notes/:noteId", verifyToken, updateNote)
-noteRouter.delete("/notes/:noteId", verifyToken, deleteNote)
+noteRouter.get("/", verifyToken, getNotes)
+noteRouter.post("/", verifyToken, createNote)
+noteRouter.put("/:noteId", verifyToken, updateNote)
+noteRouter.delete("/:noteId", verifyToken, deleteNote)
 
 export default noteRouter

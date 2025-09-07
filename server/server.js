@@ -5,6 +5,7 @@ import authRouter from './src/routes/auth.routes.js';
 import cors from "cors"
 import cookieParser from 'cookie-parser';
 import noteRouter from './src/routes/note.routes.js';
+import userRouter from './src/routes/user.routes.js';
 
 const app = express();
 const PORT = process.env.PORT;
@@ -18,7 +19,7 @@ app.use(cors({
 app.use(cookieParser())
 
 app.use("/api/auth", authRouter)
-app.use("/api/user", noteRouter)
+app.use("/api/user/notes", noteRouter)
 
 mongoose
   .connect(process.env.MONGO_URI)
