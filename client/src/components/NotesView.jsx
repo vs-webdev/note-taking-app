@@ -1,9 +1,9 @@
-import ActionButtons from "./ActionButtons"
-import ConfirmModal from "./ConfirmModal";
-import ContentSidebar from "./ContentSidebar"
-import NoteContent from "./NoteContent"
+import ActionButtons from "./ActionButtons/ActionButtons.jsx"
+import ConfirmModal from "./ConfirmModal/ConfirmModal.jsx";
+import ContentSidebar from "./ContentSidebar/ContentSidebar.jsx"
+import NoteContent from "./NoteContent/NoteContent.jsx"
 import { useNote } from "../context/NoteContext";
-import NewNote from "./NewNote";
+import NewNote from "./NewNote/NewNote.jsx";
 
 const NotesView = () => {
   const {isModalOpen, showNewNote} = useNote()

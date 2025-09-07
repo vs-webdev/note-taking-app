@@ -1,7 +1,8 @@
-import searchIcon from '../assets/images/icon-search.svg'
-import settings from '../assets/images/icon-settings.svg'
-import { useNote } from '../context/NoteContext'
-import { useView } from '../context/ViewContext'
+import { useNote } from '../../context/NoteContext'
+import { useView } from '../../context/ViewContext'
+import searchIcon from '../../assets/images/icon-search.svg'
+import settings from '../../assets/images/icon-settings.svg'
+import './header.css'
 
 const Header = () => {
   const {views, currentView, setCurrentView} = useView()

@@ -37,7 +37,7 @@ export const AuthProvider = ({children}) => {
 
   const value = {
     isAuthenticated, setIsAuthenticated,
-    accessToken,
+    accessToken, setAccessToken,
   }
 
   return (

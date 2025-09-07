@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { registerApi } from "../api/authApi"
+import { registerApi } from "../../api/authApi"
 import "./signup.css"
 
 const SignUp = () => {
@@ -23,11 +23,9 @@ const SignUp = () => {
   return (
     <div className="signup-container">
       <form onSubmit={submitSignup}>
-        <h2>Sign up to start organizing your notes and boost productivity</h2>
+        <h2 className="text-preset-5">Sign up to start organizing your notes and boost productivity</h2>
         <div className="input-field">
-          <label htmlFor="email">
-            Email Address
-          </label>
+          <label htmlFor="email" className="text-preset-4">Email Address</label>
           <input 
             type="email" 
             id="email"
@@ -37,7 +35,7 @@ const SignUp = () => {
           />
         </div>
         <div className="input-field">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" className="text-preset-4">Password</label>
           <input 
             type="password" 
             id="password"

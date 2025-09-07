@@ -1,0 +1,40 @@
+
+.signup-container{
+  max-width: fit-content;
+  padding: 0 2rem;
+  margin-bottom: 1rem;
+
+  & h2{
+    font-weight: 100;
+    margin-bottom: 2.5rem;
+    color: rgb(107, 107, 107);
+  }
+}
+
+.input-field{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1rem;
+
+  & input{
+    width: 30rem;
+    border-radius: 5px;
+    border: 1px solid var(--neutral-200);
+    margin-top: .5rem;
+    padding: .5rem .8rem;
+    font-size: 1.1rem;
+  }
+}
+
+.signup-btn{
+  width: 100%;
+  padding: .8rem 0;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--blue-500);
+  color: var(--neutral-100);
+}

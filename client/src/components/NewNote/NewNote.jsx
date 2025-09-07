@@ -50,8 +50,6 @@ const NewNote = () => {
       const uniqueTags = Array.from(new Set(mergedTags))
       return uniqueTags
     })
-
-
     setShowNewNote(false)
   }
 
@@ -62,7 +60,7 @@ const NewNote = () => {
           <input
             type="text"
             placeholder="Enter a title..."
-            className='new-note-title'
+            className='new-note-title text-preset-1'
             onChange={e => setNewNoteData(prev => ({...prev, title: e.target.value}))}
             value={newNoteData.title}
           />
@@ -75,6 +73,7 @@ const NewNote = () => {
               type="text"  
               placeholder="Add tags seperated by commas (e.g. Work, Planning)"
               onChange={e => setNewNoteData(prev => ({...prev, tags: e.target.value}))}
+              className='text-preset-4'
               value={newNoteData.tags}
             />
           </div>
@@ -83,12 +82,12 @@ const NewNote = () => {
               <img src={lastEditedIcon} alt="Last Edited Icon" />
               <span>Last Edited</span>
             </label>
-            <span>Note yet saved</span>
+            <span>Not yet saved</span>
           </div>
         </header>
         <div className="new-note-textarea-container">
           <textarea 
-            className="new-note-textarea" 
+            className="new-note-textarea text-preset-3" 
             id="content" 
             placeholder="Start typing your note here..."
             onChange={e => setNewNoteData(prev => ({...prev, content: e.target.value}))}

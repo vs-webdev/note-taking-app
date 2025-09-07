@@ -1,5 +1,6 @@
 import { useApi } from "../../api/axioinstance"
 import { useNote } from "../../context/NoteContext"
+import "./confirmmodal.css"
 
 const ConfirmModal = () => {
   const {setAllNotes, selectedNote, setIsModalOpen, modalData} = useNote()
@@ -60,13 +61,13 @@ const ConfirmModal = () => {
         <div className="modal-header">
           <img src={modalData.icon} />
           <div className="modal-info">
-            <h3>{modalData.title}</h3>
-            <p>{getModalMsg(modalData.title)}</p>
+            <h3 className="text-preset-3 modal-title">{modalData.title}</h3>
+            <p className="text-preset-4 modal-msg">{getModalMsg(modalData.title)}</p>
           </div>
         </div>
         <div className="modal-btn-wrapper">
-          <button onClick={() => setIsModalOpen(false)}>Cancel</button>
-          <button onClick={onConfirm}>{modalData.title}</button>
+          <button className="text-preset-4 cancel-btn" onClick={() => setIsModalOpen(false)}>Cancel</button>
+          <button className={`text-preset-4 ${modalData.title === 'Delete Note' ? 'delete-btn' : 'archive-btn'}`} onClick={onConfirm}>{modalData.title}</button>
         </div>
       </div>
     </div>

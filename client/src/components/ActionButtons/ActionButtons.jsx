@@ -1,8 +1,9 @@
-import { useView } from "../context/ViewContext"
-import iconArchive from '../assets/images/icon-archive.svg'
-import iconDelete from '../assets/images/icon-delete.svg'
-import iconRestore from '../assets/images/icon-restore.svg'
-import { useNote } from "../context/NoteContext"
+import { useView } from "../../context/ViewContext"
+import { useNote } from "../../context/NoteContext"
+import iconArchive from '../../assets/images/icon-archive.svg'
+import iconDelete from '../../assets/images/icon-delete.svg'
+import iconRestore from '../../assets/images/icon-restore.svg'
+import "./actionbuttons.css"
 
 const ActionButtons = () => {
   const {currentView} = useView()
@@ -22,18 +23,18 @@ const ActionButtons = () => {
       {(currentView === 'allNotes' || currentView === 'tagNotes') && <>
         <button onClick={() => handleOnAction(iconArchive, 'Archive Note')}>
           <img src={iconArchive} /> 
-          <span>Archive Note</span>
+          <span className="text-preset-5">Archive Note</span>
         </button>
       </>} 
       {currentView === 'archivedNotes' && 
         <button onClick={() => handleOnAction(iconRestore, 'Restore Note')} >
           <img src={iconRestore} /> 
-          <span>Restore Note</span>
+          <span className="text-preset-5">Restore Note</span>
         </button>
       }
       <button onClick={() => handleOnAction(iconDelete, 'Delete Note')} >
         <img src={iconDelete} /> 
-        <span>Delete Note</span>
+        <span className="text-preset-5">Delete Note</span>
       </button>
     </div>
   </>)

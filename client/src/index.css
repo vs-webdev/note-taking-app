@@ -1,7 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  /* Neutral Colors */
+  --neutral-950: #0e121b;
+  --neutral-900: #191b25;
+  --neutral-800: #232530;
+  --neutral-700: #2b3039;
+  --neutral-600: #525b68;
+  --neutral-500: #717784;
+  --neutral-400: #9a9aae;
+  --neutral-300: #cadfde;
+  --neutral-200: #e0e4ea;
+  --neutral-100: #f3f5f8;
+  --neutral-50: #f5f7fa;
+  --neutral-0: #ffffff;
+
+  /* Blue Colors */
+  --blue-700: #2547d0;
+  --blue-500: #353cff;
+  --blue-50: #ebf1ff;
+
+  /* Green Colors */
+  --green-500: #12c188;
+  --green-100: #d1f8e9;
+
+  /* Red Colors */
+  --red-500: #fb3746;
+  --red-100: #ffd5d8;
+
+  /* == Text-Preset 1 has font weight Bold == */
+  --text-preset-1-font-size: 1.5rem; /* 24px */
+  --text-preset-1-line-height: 120%;
+  --text-preset-1-letter-spacing: -0.5px;
+
+  /* == Text-Preset 2 has font weight Bold == */
+  --text-preset-2-font-size: 1.25rem; /* 20px */
+  --text-preset-2-line-height: 120%;
+  --text-preset-2-letter-spacing: -0.5px;
+
+
+  /* == Text-Preset 3 has font weight Semi Bold == */
+  --text-preset-3-font-size: 1rem; /* 16px */
+  --text-preset-3-line-height: 120%;
+  --text-preset-3-letter-spacing: -0.3px;
+
+  /* == Text-Preset 4 has font weight Medium == */
+  --text-preset-4-font-size: 0.875rem; /* 14px */
+  --text-preset-4-line-height: 120%;
+  --text-preset-4-letter-spacing: 0.1px;
+
+  /* == Text-Preset 5 has font weight Regular == */
+  --text-preset-5-font-size: 0.875rem; /* 14px */
+  --text-preset-5-line-height: 120%;
+  --text-preset-5-letter-spacing: -0.2px;
+
+  /* == Text-Preset 6 has font weight Regular == */
+  --text-preset-6-font-size: 0.75rem; /* 12px */
+  --text-preset-6-line-height: 120%;
+  --text-preset-6-letter-spacing: -0.2px;
+
+  /* Font weights for consistency */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,5 +80,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
+  height: 100vh;
   min-height: 100vh;
+  color: var(--neutral-950);
 }

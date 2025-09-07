@@ -1,6 +1,6 @@
-import Header from './Header.jsx'
-import SettingsView from './SettingsView.jsx'
+import SettingsView from './SettingsView/SettingsView.jsx'
 import NotesView from './NotesView.jsx'
+import Header from './Header/Header.jsx'
 import { useView } from '../context/ViewContext.jsx'
 import { useSettings } from '../context/SettingContext.jsx'
 
@@ -11,9 +11,9 @@ const Content = () => {
   return (
     <section className='content-wrapper' style={{fontFamily: `${selectedFont.optionTitle}`}}>
       <Header />
-        {currentView !== 'settings' ?
-          <NotesView /> :
-          <SettingsView />
+        {currentView !== 'settings' 
+          ? <NotesView /> 
+          : <SettingsView />
         }
     </section>
   )

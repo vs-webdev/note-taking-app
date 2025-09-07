@@ -3,6 +3,7 @@ import iconTag from '../../assets/images/icon-tag.svg'
 import iconClock from '../../assets/images/icon-clock.svg'
 import { useNote } from '../../context/NoteContext'
 import { useApi } from '../../api/axioinstance'
+import "./noteContent.css"
 
 const NoteContent = ({dateFormat}) => {
   const api = useApi()
@@ -80,44 +81,46 @@ const NoteContent = ({dateFormat}) => {
             <input
               type="text"
               value={editData?.title}
+              className='edit edit-note-title text-preset-1'
               onChange={e => setEditData(prev => ({...prev, title: e.target.value}))}
             />
           ) : (
-            <h2 onClick={() => startEditing('title')}>{selectedNote?.title}</h2>
+            <h2 className='text-preset-1' onClick={() => startEditing('title')}>{selectedNote?.title}</h2>
           )}
         </div>
 
         <div className="detailed-note-tags">
-          <span><img src={iconTag} alt="Icon Tag" /> Tags</span>
+          <span className='text-preset-5'><img src={iconTag} alt="Icon Tag" /> Tags</span>
           {isEditing.tags ? (
             <input 
               type="text" 
               value={editData.tags} 
+              className='edit'
               onChange={e => setEditData(prev => ({...prev, tags: e.target.value}))}
             />
           ) : (
             <ul onClick={() => startEditing('tags')}>{selectedNote?.tags?.map((tag, tagIndex) => 
-              <li key={tagIndex}>{tag}</li>
+              <li className='text-preset-5' key={tagIndex}>{tag}</li>
             )}</ul>
           )}
         </div>
 
-        <div className="detailed-note-edited">
-          <span><img src={iconClock} alt="Icon Clock" /> Last Edited</span>
-          <p>{dateFormat(selectedNote?.lastEdited)}</p>
+        <div className="detailed-note-edit">
+          <span className='text-preset-5'><img src={iconClock} alt="Icon Clock" /> Last Edited</span>
+          <p className='text-preset-5'>{dateFormat(selectedNote?.lastEdited)}</p>
         </div>
       </header>
 
       <div className="detailed-note-content">
         {isEditing.content ? (
           <textarea
-            className='detailed-note-content'
+            className='detailed-note-content edit'
             value={editData?.content}
             onChange={e => setEditData(prev => ({...prev, content: e.target.value}))}
           >
           </textarea>
         ) : (
-          <pre onClick={() => startEditing('content')} className='detailed-note-content'>{selectedNote?.content}</pre>
+          <pre onClick={() => startEditing('content')} className='detailed-note-content text-preset-5'>{selectedNote?.content}</pre>
         )}
       </div>
 
@@ -126,7 +129,7 @@ const NoteContent = ({dateFormat}) => {
           <button onClick={onCancel}>Cancel</button>
         </div>
       </> :
-      <p>You don’t have any notes available in this tab. Start a new note to capture your thoughts and ideas.</p>
+      <p className='text-preset-4'>You don’t have any notes available in this tab. Start a new note to capture your thoughts and ideas.</p>
       }
     </div>
   )

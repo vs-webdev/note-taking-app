@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { loginApi } from "../api/authApi"
-import { useAuth } from "../context/AuthContext"
+import { loginApi } from "../../api/authApi"
+import { useAuth } from "../../context/AuthContext"
 import "./login.css"
 
 const Login = () => {
@@ -25,9 +25,9 @@ const Login = () => {
   return (
     <div className="login-container">
       <form onSubmit={submitLogin}>
-        <h2>Please log in to continue</h2>
+        <h2 className="text-preset-5">Please log in to continue</h2>
         <div className="input-field">
-          <label htmlFor="email">
+          <label htmlFor="email" className="text-preset-4">
             Email Address
           </label>
           <input 
@@ -39,7 +39,7 @@ const Login = () => {
           />
         </div>
         <div className="input-field">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" className="text-preset-4">Password</label>
           <input 
             type="password" 
             id="password"

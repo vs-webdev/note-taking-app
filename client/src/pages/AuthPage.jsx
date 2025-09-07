@@ -1,6 +1,7 @@
 import { useState } from "react"
-import SignUp from "../components/Signup"
-import Login from "../components/Login.jsx"
+import logo from '../assets/images/logo.svg'
+import Login from "../components/Login/Login"
+import SignUp from "../components/Signup/SignUp"
 import "./authPage.css"
 
 const AuthPage = () => {
@@ -9,7 +10,8 @@ const AuthPage = () => {
   return (
     <div className="auth-wrapper">
       <div className="auth-container">
-        <h1>Welcom to Note</h1>
+        <img src={logo} alt="Logo" />
+        <h1 className="text-preset-1">Welcome to Note</h1>
         {isUserRegister
           ? <Login />
           : <SignUp />
