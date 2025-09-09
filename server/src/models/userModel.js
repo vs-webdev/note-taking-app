@@ -10,6 +10,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  settings: {
+    theme: {
+      type: String,
+      enum: ["Light", "Dark"],
+      default: "Light"
+    },
+    font: {
+      type: String,
+      enum: ["Sans-serif", "Serif", "Monospace"],
+      default: "Sans-serif"
+    }
+  }
 })
 
 const userModel = mongoose.models.user || mongoose.model('user', userSchema)

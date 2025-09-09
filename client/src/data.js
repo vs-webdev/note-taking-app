@@ -7,12 +7,12 @@ const data = {
             "id": 0,
             "options": [
                 {
-                    "optionTitle": "Light Mode",
+                    "optionTitle": "Light",
                     "optionDesc": "Pick a clean and classic light theme",
                     "id": 0,
                 },
                 {
-                    "optionTitle": "Dark Mode",
+                    "optionTitle": "Dark",
                     "optionDesc": "Select a sleek and modern dark theme",
                     "id": 1,
                 },

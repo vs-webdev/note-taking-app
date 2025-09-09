@@ -10,17 +10,31 @@ import { useAuth } from '../../context/AuthContext.jsx'
 import "./settingsview.css"
 
 const SettingsView = () => {
+  const api = useApi()
   const {currentView} = useView()
   const {setIsAuthenticated, setAccessToken} = useAuth()
-  const api = useApi()
   const {settings, selectedSetting, setSelectedSetting, selectedTheme, setSelectedTheme, selectedFont, setSelectedFont} = useSettings()
   const themeIcons = [lightIcon, darkIcon]
   const fontIcons = [sansSerifIcon, serifIcon, monospaceIcon]
 
-  const handleOption = (optionIndex) => {
-    selectedSetting.id === 0 ?
-      setSelectedTheme(settings[0].options[optionIndex]) :
-      setSelectedFont(settings[1].options[optionIndex])
+  const handleOption = async (optionIndex) => {
+    if (selectedSetting.id === 0){
+      try {
+        const theme = settings[0].options[optionIndex].optionTitle
+        await api.put("/user/settings", {theme})
+        setSelectedTheme(settings[0].options[optionIndex])
+      } catch (error) {
+        console.log(error.message)
+      }
+    } else {
+      try {
+        const font = settings[1].options[optionIndex].optionTitle
+        await api.put("/user/settings", {font})
+        setSelectedFont(settings[1].options[optionIndex])
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
   }
 
   const handleLogout = async () => {
@@ -70,6 +84,8 @@ const SettingsView = () => {
               const isActive = isColorTheme 
               ? selectedTheme.id === optIndex 
               : selectedFont.id === optIndex
+
+              console.log('isActive', isActive)
 
               return (<li className={`option ${isActive && 'active-option'}`} 
                 key={optIndex}
