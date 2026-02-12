@@ -1,4 +1,4 @@
-.header-container{
+.headerContainer{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,16 +8,16 @@
   border-bottom: 1px solid var(--neutral-200);
 }
 
-.header-right{
+.headerRight{
   display: flex;
   align-items: center;
 }
 
-.page-title{
+.pageTitle{
   font-size: 1.5rem;
 }
 
-.search-bar-container{
+.searchBarContainer{
   display: flex;
   align-items: center;
   border: 1px solid var(--neutral-200);
@@ -42,7 +42,7 @@
   }
 }
 
-.setting-btn{
+.settingBtn{
   border: none;
   background-color: transparent;
   display: flex;

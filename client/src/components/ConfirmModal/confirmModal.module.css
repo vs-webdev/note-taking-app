@@ -1,5 +1,5 @@
 
-.modal-wrapper{
+.modalWrapper{
   position: absolute;
   background-color: rgba(25, 24, 24, 0.518);
   inset: 0;
@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.modal-container{
+.modalContainer{
   background-color: white;
   max-width: 445px;
   width: 100%;
@@ -16,7 +16,7 @@
   border-radius: 1rem;
 }
 
-.modal-header{
+.modalHeader{
   display: flex;
   align-items: start;
   text-align: left;
@@ -30,15 +30,15 @@
   }
 }
 
-.modal-title{
+.modalTitle{
   margin-bottom: .5rem;
 }
 
-.modal-msg{
+.modalMsg{
   color: var(--neutral-800);
 }
 
-.modal-btn-wrapper{
+.modalBtnWrapper{
   display: flex;
   justify-content: end;
   gap: 1rem;
@@ -52,16 +52,16 @@
   }
 }
 
-.cancel-btn{
+.cancelBtn{
   color: var(--neutral-700);
 }
 
-.delete-btn{
+.deleteBtn{
   background-color: var(--red-500);
   color: var(--neutral-100);
 }
 
-.archive-btn{
+.archiveBtn{
   background-color: var(--blue-500);
   color: var(--neutral-100);
 }

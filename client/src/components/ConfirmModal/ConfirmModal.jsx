@@ -1,6 +1,6 @@
 import { useApi } from "../../api/axioinstance"
 import { useNote } from "../../context/NoteContext"
-import "./confirmmodal.css"
+import styles from "./confirmModal.module.css"
 
 const ConfirmModal = () => {
   const {setAllNotes, selectedNote, setIsModalOpen, modalData} = useNote()
@@ -56,18 +56,33 @@ const ConfirmModal = () => {
   }
 
   return (
-    <div className="modal-wrapper">
-      <div className="modal-container">
-        <div className="modal-header">
+    <div className={styles.modalWrapper}>
+      <div className={styles.modalContainer}>
+        
+        <div className={styles.modalHeader}>
           <img src={modalData.icon} />
-          <div className="modal-info">
-            <h3 className="text-preset-3 modal-title">{modalData.title}</h3>
-            <p className="text-preset-4 modal-msg">{getModalMsg(modalData.title)}</p>
+          <div className={styles.modalInfo}>
+            <h3 className={`text-preset-3 ${styles.modalTitle}`}>{modalDataTitle}</h3>
+            <p className={`text-preset-4 ${modalMsg}`}>{getModalMsg(modalDataTitle)}</p>
           </div>
         </div>
-        <div className="modal-btn-wrapper">
-          <button className="text-preset-4 cancel-btn" onClick={() => setIsModalOpen(false)}>Cancel</button>
-          <button className={`text-preset-4 ${modalData.title === 'Delete Note' ? 'delete-btn' : 'archive-btn'}`} onClick={onConfirm}>{modalData.title}</button>
+
+        <div className={styles.modalBtnWrapper}>
+          <button className={`text-preset-4 ${cancelBtn}`} 
+            onClick={() => setIsModalOpen(false)}
+          >
+            Cancel
+          </button>
+          <button 
+            className={`text-preset-4 ${
+              modalData.title === 'Delete Note' 
+                ? deleteBtn
+                : archiveBtn
+            }`}
+            onClick={onConfirm}
+          >
+            {modalData.title}
+          </button>
         </div>
       </div>
     </div>

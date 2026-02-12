@@ -1,6 +1,6 @@
+import styles from "./signup.module.css"
 import { useState } from "react"
 import { registerApi } from "../../api/authApi"
-import "./signup.css"
 
 const SignUp = () => {
   const [email, setEmail] = useState('')
@@ -21,10 +21,10 @@ const SignUp = () => {
   }
 
   return (
-    <div className="signup-container">
+    <div className={styles.signupContainer}>
       <form onSubmit={submitSignup}>
         <h2 className="text-preset-5">Sign up to start organizing your notes and boost productivity</h2>
-        <div className="input-field">
+        <div className={styles.inputField}>
           <label htmlFor="email" className="text-preset-4">Email Address</label>
           <input 
             type="email" 
@@ -34,7 +34,7 @@ const SignUp = () => {
             onChange={e => setEmail(e.target.value)}
           />
         </div>
-        <div className="input-field">
+        <div className="inputField">
           <label htmlFor="password" className="text-preset-4">Password</label>
           <input 
             type="password" 
@@ -44,7 +44,9 @@ const SignUp = () => {
             onChange={e => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit" className="signup-btn">Sign Up</button>
+        <button type="submit" className={styles.signupBtn}>
+          Sign Up
+        </button>
       </form>
     </div>
   )

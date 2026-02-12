@@ -15,7 +15,7 @@ const NotesView = () => {
   });
   
   return (
-    <div className="notes-detail-wrapper">
+    <div className="notesDetailWrapper">
       <ContentSidebar
         dateFormat={dateFormat}
       />

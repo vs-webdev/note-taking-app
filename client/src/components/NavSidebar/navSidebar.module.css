@@ -1,11 +1,11 @@
-.sidebar-container{
+.sidebarContainer{
   width: 100%;
   max-width: 252px;
   text-align: left;
   border-right: 1px solid var(--neutral-200);
 }
 
-.notes-nav{
+.notesNav{
   padding: 1rem 0 0;
   border-bottom: 1px solid var(--neutral-200);
 
@@ -26,7 +26,7 @@
   }
 }
 
-.notes-nav-active{
+.notesNavActive{
   background-color: #f3f5f8;
   background-image: url('../../assets/images/icon-chevron-right.svg');
   background-repeat: no-repeat;
@@ -34,7 +34,7 @@
   background-size: 12%;
 }
 
-.tags-container{
+.tagsContainer{
   padding: .5rem 0;
 
   & h2{
@@ -42,7 +42,7 @@
   }
 }
 
-.tags-lists{
+.tagsLists{
   height: 460px;
   overflow: auto;
   

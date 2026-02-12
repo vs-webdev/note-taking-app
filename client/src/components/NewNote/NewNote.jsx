@@ -3,7 +3,7 @@ import { useNote } from '../../context/NoteContext'
 import { useApi } from '../../api/axioinstance'
 import tagIcon from '../../assets/images/icon-tag.svg'
 import lastEditedIcon from '../../assets/images/icon-clock.svg'
-import './newNote.css'
+import styles from './newNote.module.css'
 
 const NewNote = () => {
   const {setShowNewNote, setAllNotes, tags, setTags} = useNote()
@@ -54,17 +54,17 @@ const NewNote = () => {
   }
 
   return (
-    <div className="detailed-note-wrapper">
-      <form className='new-note-form'>
+    <div className={styles.detailedNoteWrapper}>
+      <form className={styles.newNoteForm}>
         <header>
           <input
             type="text"
             placeholder="Enter a title..."
-            className='new-note-title text-preset-1'
+            className={`${styles.newNoteTitle} text-preset-1`}
             onChange={e => setNewNoteData(prev => ({...prev, title: e.target.value}))}
             value={newNoteData.title}
           />
-          <div className="new-note-meta-field">
+          <div className={styles.newNoteMetaField}>
             <label id='tags' name='tags'>
               <img src={tagIcon} alt="Tag Icon" />
               <span>Tags</span>
@@ -77,7 +77,7 @@ const NewNote = () => {
               value={newNoteData.tags}
             />
           </div>
-          <div className="new-note-meta-field">
+          <div className={styles.newNoteMetaField}>
             <label>
               <img src={lastEditedIcon} alt="Last Edited Icon" />
               <span>Last Edited</span>
@@ -85,16 +85,16 @@ const NewNote = () => {
             <span>Not yet saved</span>
           </div>
         </header>
-        <div className="new-note-textarea-container">
+        <div className={styles.newNoteTextareaContainer}>
           <textarea 
-            className="new-note-textarea text-preset-3" 
+            className={`${styles.newNoteTextarea} text-preset-3`} 
             id="content" 
             placeholder="Start typing your note here..."
             onChange={e => setNewNoteData(prev => ({...prev, content: e.target.value}))}
             value={newNoteData.content}
           ></textarea>
         </div>
-        <div className="new-note-btn-wrapper">
+        <div className={styles.newNoteBtnWrapper}>
           <button type='submit' onClick={handleSubmit}>Save Note</button>
           <button onClick={() => setShowNewNote(false)}>Cancel</button>
         </div>

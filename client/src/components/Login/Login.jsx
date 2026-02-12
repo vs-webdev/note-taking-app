@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { loginApi } from "../../api/authApi"
 import { useAuth } from "../../context/AuthContext"
-import "./login.css"
+import styles from "./login.module.css"
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -23,10 +23,10 @@ const Login = () => {
   }
 
   return (
-    <div className="login-container">
+    <div className={styles.loginContainer}>
       <form onSubmit={submitLogin}>
         <h2 className="text-preset-5">Please log in to continue</h2>
-        <div className="input-field">
+        <div className={styles.inputField}>
           <label htmlFor="email" className="text-preset-4">
             Email Address
           </label>
@@ -38,7 +38,7 @@ const Login = () => {
             onChange={e => setEmail(e.target.value)}
           />
         </div>
-        <div className="input-field">
+        <div className={styles.inputField}>
           <label htmlFor="password" className="text-preset-4">Password</label>
           <input 
             type="password" 
@@ -48,7 +48,7 @@ const Login = () => {
             onChange={e => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit" className="login-btn">Log In</button>
+        <button type="submit" className={styles.loginBtn}>Log In</button>
       </form>
     </div>
   )

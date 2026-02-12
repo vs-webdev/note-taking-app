@@ -1,4 +1,4 @@
-.content-sidebar-wrapper{
+.contentSidebarWrapper{
   /* max-width: 300px; */
   flex: 1;
   width: 100%;
@@ -6,17 +6,28 @@
   border-right: 1px solid var(--neutral-200);
 }
 
-.content-sidebar-info{
+.newNoteBtn{
+  background-color: var(--blue-500);
+  color: var(--neutral-50);
+  border: none;
+  width: 100%;
+  padding: .8rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.contenSidebarInfo{
   margin-bottom: 1rem;
 }
 
-.notes-list-container{
+.notesListContainer{
   max-height: 550px;
   overflow: auto;
   width: 100%;
 }
 
-.note-item{
+.noteItem{
   text-align: left;
   padding: .8rem 1rem;
   border-radius: 5px;
@@ -24,15 +35,15 @@
   cursor: pointer;
 }
 
-.note-item:hover{
+.noteItem:hover{
   background-color: var(--neutral-200);
 }
 
-.note-title{
+.noteTitle{
   margin-bottom: .5rem;
 }
 
-.note-tags{
+.noteTags{
   display: flex;
   gap: .3rem;
   margin-bottom: .5rem;
@@ -44,6 +55,6 @@
   }
 }
 
-.active-note{
+.activeNote{
   background-color: var(--neutral-100);
 }

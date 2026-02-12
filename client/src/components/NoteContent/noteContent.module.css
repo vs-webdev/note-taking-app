@@ -1,4 +1,4 @@
-.detailed-note-wrapper{
+.detailedNoteWrapper{
   max-width: 650px;
   width: 100%;
   padding: 1.2rem 1.5rem;
@@ -9,7 +9,7 @@
   }
 }
 
-.detailed-note-header{
+.detailedNoteHeader{
   width: auto;
   text-align: left;
   margin-bottom: 1rem;
@@ -31,12 +31,12 @@
   color: var(--blue-500);
 }
 
-.edit-note-title{
+.editNoteTitle{
   width: 100%;
   margin-bottom: .5rem;
 }
 
-.detailed-note-tags{
+.detailedNoteTags{
   display: flex;
   gap: 1rem;
   width: auto;
@@ -55,7 +55,7 @@
   }
 }
 
-.detailed-note-edit{
+.detailedNoteEdit{
   width: auto;
   display: flex;
   align-items: center;
@@ -69,7 +69,7 @@
   }
 }
 
-.detailed-note-content{
+.detailedNoteContent{
   text-align: left;
   width: 100%;
   height: 25rem;

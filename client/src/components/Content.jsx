@@ -9,7 +9,7 @@ const Content = () => {
   const {selectedFont} = useSettings()
 
   return (
-    <section className='content-wrapper' style={{fontFamily: `${selectedFont.optionTitle}`}}>
+    <section className='contentWrapper' style={{fontFamily: `${selectedFont.optionTitle}`}}>
       <Header />
         {currentView !== 'settings' 
           ? <NotesView /> 

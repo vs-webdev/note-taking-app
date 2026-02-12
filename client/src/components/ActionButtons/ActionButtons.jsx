@@ -3,7 +3,7 @@ import { useNote } from "../../context/NoteContext"
 import iconArchive from '../../assets/images/icon-archive.svg'
 import iconDelete from '../../assets/images/icon-delete.svg'
 import iconRestore from '../../assets/images/icon-restore.svg'
-import "./actionbuttons.css"
+import styles from "./actionButtons.module.css"
 
 const ActionButtons = () => {
   const {currentView} = useView()
@@ -19,7 +19,7 @@ const ActionButtons = () => {
   }
 
   return (<>
-    <div className="action-btns-wrapper">
+    <div className={styles.actionBtnsWrapper}>
       {(currentView === 'allNotes' || currentView === 'tagNotes') && <>
         <button onClick={() => handleOnAction(iconArchive, 'Archive Note')}>
           <img src={iconArchive} /> 
